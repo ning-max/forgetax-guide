@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ForgeTax 冲 +99 经济与遗物逐日攻略</title>
+<style>
+:root{--bg:#f5f6fa;--card:#fff;--line:#e4e7ef;--text:#202636;--muted:#68738a;--blue:#2d6cdf;--blue-soft:#edf3ff;--orange:#a85b00;--orange-soft:#fff4e6;--green:#137b43;--green-soft:#e9f8ef;--red:#a62e2e;--red-soft:#ffeded;--shadow:0 8px 24px rgba(25,35,55,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.62}.container{width:min(1180px,calc(100% - 28px));margin:18px auto 60px}.hero,.card,.day{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.hero{padding:15px 18px;margin-bottom:12px}.hero h1{font-size:24px;margin:0 0 4px}.hero p{margin:3px 0;color:var(--muted);font-size:14px}/* 修复滚动：只让紧凑进度条吸顶，不要让包含两个大清单的整个区域吸顶。 */
+html,body{height:auto!important;min-height:100%;overflow-y:auto!important;overflow-x:hidden}
+body{overscroll-behavior-y:auto}
+.sticky{position:static;z-index:auto;background:transparent;backdrop-filter:none;padding:0;margin:0}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(245,246,250,.97);backdrop-filter:blur(9px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;margin-bottom:8px;scroll-margin-top:8px}.progress-block{min-width:0}.tiny{font-size:12px;color:var(--muted)}.progress{font-size:17px;font-weight:800}.missing-summary{font-size:13px;color:var(--muted);max-width:700px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}button{border:0;border-radius:10px;padding:8px 11px;font:inherit;font-size:13px;cursor:pointer}.primary{background:var(--blue);color:#fff}.secondary{background:var(--blue-soft);color:var(--blue)}.danger{background:var(--red-soft);color:var(--red)}.panel{padding:13px 14px;margin-bottom:8px}.panel summary,.day summary{cursor:pointer;list-style:none}.panel summary::-webkit-details-marker,.day summary::-webkit-details-marker{display:none}.panel summary{font-weight:800}.panel summary:after{content:"（点击展开/收起）";font-weight:400;font-size:12px;color:var(--muted);margin-left:6px}.panel[open] summary{margin-bottom:12px}.two-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}.section-title{font-size:18px;margin:0 0 9px}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.check-row{display:flex;align-items:flex-start;gap:9px;padding:9px 10px;background:#fafbff;border:1px solid #e9edf6;border-radius:11px;min-width:0}.check-row input{width:19px;height:19px;flex:0 0 auto;margin-top:3px;cursor:pointer}.check-row label{display:block;cursor:pointer;min-width:0}.label-name{font-weight:600}.check-row input:checked+label .label-name{text-decoration:line-through;color:#788194}.desc{display:block;font-size:12px;color:var(--muted);line-height:1.45}.pills{display:flex;flex-wrap:wrap;gap:7px}.pill{display:inline-block;padding:6px 9px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-size:13px}.pill.missing{background:var(--orange-soft);color:var(--orange)}.pill.good{background:var(--green-soft);color:var(--green)}.budget-grid{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:10px;align-items:end}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}.field input{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:9px;font:inherit}.checkfield{display:flex;align-items:center;gap:8px;font-size:13px}.checkfield input{width:17px;height:17px}.budget-result{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--blue-soft);color:#224f9e;font-weight:700}.budget-result.bad{background:var(--red-soft);color:var(--red)}.days{display:grid;gap:14px;margin-top:16px;position:relative;scroll-margin-top:90px}.day{padding:0;overflow:hidden}.day summary{padding:14px 17px;background:#fff}.day[open] summary{border-bottom:1px solid var(--line)}.day-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.day-title{font-size:20px;font-weight:800}.day-meta{font-size:13px;color:var(--muted)}.merchant-tag{display:inline-block;background:#fff0d9;color:#925000;border-radius:999px;padding:3px 8px;font-size:12px;margin-left:5px}.day-body{padding:14px 17px 18px}.section{margin-top:15px}.section:first-child{margin-top:0}.section h3{font-size:17px;margin:0 0 8px}.ordered{margin:0;padding-left:22px}.ordered li,.bullets li{margin:5px 0}.bullets{margin:0;padding-left:22px}.tip{padding:10px 12px;border-left:4px solid var(--blue);background:#f7faff;border-radius:9px}.warning{padding:10px 12px;border-left:4px solid #e0a13a;background:#fffaf1;border-radius:9px}.daily-focus{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.needline{margin-top:8px;padding:10px 12px;border:1px solid #ffe2b5;background:#fffaf1;border-radius:10px;font-size:14px}.merchant-table{border-collapse:collapse;width:100%;font-size:14px}.merchant-table th,.merchant-table td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}.merchant-table th{background:#f7f8fc}.note{width:100%;min-height:60px;resize:vertical;padding:9px 10px;border:1px solid var(--line);border-radius:9px;font:inherit}.footer{margin-top:20px;color:var(--muted);font-size:13px}.hide{display:none!important}
+
+/* 上滑快速访问：向下阅读时隐藏，轻微向上滑动时出现 */
+.quick-float{position:fixed;top:10px;left:50%;transform:translate(-50%,-150%);width:min(1180px,calc(100% - 24px));z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(20,30,50,.18);opacity:0;pointer-events:none;transition:transform .18s ease,opacity .18s ease;backdrop-filter:blur(12px)}
+.quick-float.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}.quick-float .quick-info{min-width:0}.quick-float .quick-progress{font-weight:800;font-size:15px}.quick-float .quick-missing{font-size:12px;color:var(--muted);max-width:650px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.quick-float button{white-space:nowrap}
+.quick-overlay{position:fixed;inset:0;z-index:1100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(12,17,27,.58)}.quick-overlay.open{display:flex}.quick-dialog{width:min(1050px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 24px 80px rgba(0,0,0,.28);padding:18px}.quick-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;position:sticky;top:-18px;background:#fff;padding:2px 0 12px;z-index:2;border-bottom:1px solid var(--line)}.quick-dialog h2{margin:0;font-size:22px}.quick-dialog .quick-subtitle{font-size:13px;color:var(--muted);margin-top:4px}.quick-dialog .quick-content{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:14px}.quick-dialog .quick-section{border:1px solid var(--line);border-radius:13px;padding:13px;min-width:0}.quick-dialog .quick-section h3{font-size:17px;margin:0 0 10px}.quick-dialog .checks{grid-template-columns:1fr}.quick-dialog .quick-side{display:grid;gap:12px;align-content:start}.quick-dialog .quick-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:14px;position:sticky;bottom:-18px;background:#fff;padding:12px 0 0;border-top:1px solid var(--line)}
+@media(max-width:720px){.quick-float{align-items:flex-start}.quick-float .quick-missing{max-width:48vw}.quick-float .quick-label{display:none}.quick-dialog{padding:13px;max-height:92vh}.quick-dialog .quick-content{grid-template-columns:1fr}.quick-dialog-head{top:-13px}.quick-dialog .quick-footer{bottom:-13px}}
+@media(max-width:850px){.two-cols{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}.actions{justify-content:flex-start}.budget-grid{grid-template-columns:1fr 1fr}.checkfield{grid-column:1/-1}}
+@media(max-width:560px){.container{width:calc(100% - 16px);margin-top:8px}.hero h1{font-size:21px}.checks,.daily-focus{grid-template-columns:1fr}.budget-grid{grid-template-columns:1fr}.day-title{font-size:18px}.day-body{padding:12px}.merchant-table{font-size:12px}.merchant-table th,.merchant-table td{padding:6px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="hero">
+    <h1>ForgeTax 冲 +99：经济优先逐日攻略</h1>
+    <p>按你提供的游戏内中文名称整理。每日计划包含贡品、最终遗物目标、前期过渡建议、刷新策略和幽灵商人购买建议。页面可正常上下滚动；顶部仅进度条吸顶，两个遗物清单不会挡住每日计划。</p>
+    <p><strong>总原则：</strong>先预留贡品，再花金币；最终遗物和过渡遗物分开记录；勾选状态与删除线严格同步。</p>
+  </header>
+
+  <section class="card panel" style="margin-bottom:10px">
+    <h2 class="section-title">贡品预算计算器</h2>
+    <div class="tiny">金币预算只计算 G。遗物商店的剑币是另一种资源，不要混算。安全可花金额 = 当前金币 − 未交的今日贡品 − 下一天贡品预留。</div>
+    <div class="budget-grid" style="margin-top:10px">
+      <div class="field"><label for="budgetDay">当前第几天</label><input id="budgetDay" type="number" min="1" max="21" value="5"></div>
+      <div class="field"><label for="budgetGold">当前金币（G）</label><input id="budgetGold" type="number" min="0" step="100" value="0" placeholder="输入金币"></div>
+      <label class="checkfield"><input id="todayPaid" type="checkbox"> 今天的贡品已经交完</label>
+    </div>
+    <div id="budgetResult" class="budget-result">输入当前金币后计算预算。</div>
+  </section>
+
+  <div class="sticky">
+    <div class="card topbar">
+      <div class="progress-block">
+        <div class="tiny">最终 8 件进度</div>
+        <div class="progress" id="finalProgress">0 / 8</div>
+        <div class="missing-summary" id="finalMissingSummary">还缺：开裂的接合片、牢固铁箍、折断的圣剑……</div>
+      </div>
+      <div class="actions">
+        <button class="primary" id="toggleFinal">展开最终遗物</button>
+        <button class="secondary" id="toggleTransition">展开过渡遗物</button>
+        <button class="secondary" id="expandDays">展开全部天数</button>
+        <button class="secondary" id="collapseDays">收起全部天数</button>
+        <button class="danger" id="resetChecks">清空遗物勾选</button>
+      </div>
+    </div>
+    <details class="card panel" id="finalPanel">
+      <summary>最终必备遗物（只放最终冲 +99 配置，不把经济支援件混进来）</summary>
+      <div class="two-cols">
+        <div><div class="checks" id="finalChecks"></div></div>
+        <div><h3 class="section-title">最终遗物缺口</h3><div class="pills" id="finalOwned"></div><div style="height:8px"></div><div class="pills" id="finalMissing"></div></div>
+      </div>
+    </details>
+    <details class="card panel" id="transitionPanel">
+      <summary>前期过渡遗物（有用就买，后期可替换，不是最终必备）</summary>
+      <div class="checks" id="transitionChecks"></div>
+      <p class="tiny" style="margin-bottom:0">这里记录的是你当前持有/曾拿到的过渡件。后期遗物位紧张时，优先换掉过渡件，不要为了保留它们牺牲最终配置。</p>
+    </details>
+  </div>
+
+  <div class="days" id="days"></div>
+  <div class="footer">提醒：本攻略是按当前已知机制制定的执行优先级，不代表商店必定刷出指定遗物。每一天都以实际商店、当前剑价值和贡品是否有保障为准。页面勾选和备注保存在浏览器本地。</div>
+</div>
+
+<div class="quick-float" id="quickFloat" aria-live="polite">
+  <div class="quick-info">
+    <div class="tiny">快速遗物管理 <span class="quick-label">｜上滑时出现</span></div>
+    <div class="quick-progress" id="quickProgress">0 / 8</div>
+    <div class="quick-missing" id="quickMissingSummary">还缺：开裂的接合片、牢固铁箍……</div>
+  </div>
+  <button class="primary" id="openQuickRelics">查看 / 修改遗物</button>
+</div>
+
+<div class="quick-overlay" id="quickOverlay" role="dialog" aria-modal="true" aria-labelledby="quickDialogTitle">
+  <div class="quick-dialog">
+    <div class="quick-dialog-head">
+      <div>
+        <h2 id="quickDialogTitle">快速管理我的遗物</h2>
+        <div class="quick-subtitle">勾选你已经拥有的遗物；同名项目会在每日计划和总表中同步更新。</div>
+      </div>
+      <button class="secondary" id="closeQuickTop" aria-label="关闭">关闭 ✕</button>
+    </div>
+    <div class="quick-content">
+      <section class="quick-section">
+        <h3>最终 8 件遗物</h3>
+        <div class="tiny" style="margin-bottom:10px">进度：<strong id="quickProgressInside">0 / 8</strong></div>
+        <div class="checks" id="quickFinalChecks"></div>
+      </section>
+      <div class="quick-side">
+        <section class="quick-section">
+          <h3>已拥有的最终遗物</h3>
+          <div class="pills" id="quickOwned"></div>
+        </section>
+        <section class="quick-section">
+          <h3>还缺的最终遗物</h3>
+          <div class="pills" id="quickMissing"></div>
+        </section>
+        <section class="quick-section">
+          <h3>前期过渡遗物（当前持有）</h3>
+          <div class="checks" id="quickTransitionChecks"></div>
+          <p class="tiny" style="margin-bottom:0">过渡件单独记录，不计入最终 8 件进度。</p>
+        </section>
+      </div>
+    </div>
+    <div class="quick-footer">
+      <button class="secondary" id="quickScrollPlan">返回每日计划</button>
+      <button class="primary" id="closeQuickBottom">完成</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const tributes={1:1800,2:2100,3:2600,4:3350,5:4350,6:5700,7:7500,8:9800,9:12800,10:16700,11:21500,12:27750,13:35700,14:45800,15:58650,16:74650,17:94550,18:119350,19:149950,20:186850,21:232000};
+const merchantDays=new Set([3,6,9,12,15,18,21]);
+const finalRelics=[
+ {key:'splice',name:'开裂的接合片',cost:'免费三选一 / 2 剑币',desc:'前期防碎核心；第 1 天免费三选一出现时优先拿。'},
+ {key:'hoop',name:'牢固铁箍',cost:'1 剑币',desc:'防碎核心之一；预算允许时尽早补。'},
+ {key:'holySword',name:'折断的圣剑',cost:'1 剑币',desc:'等级继承路线核心。'},
+ {key:'tongs',name:'龙鳞钳',cost:'2 剑币',desc:'高等级阶段降低碎剑风险。'},
+ {key:'glassHourglass',name:'玻璃沙漏',cost:'2 剑币',desc:'入神收益向组件；经济稳定后再买。'},
+ {key:'dawnScabbard',name:'黎明之鞘',cost:'3 剑币',desc:'与折断的圣剑配合形成继承路线。'},
+ {key:'sickleHammer',name:'镰刀与锤子',cost:'4 剑币',desc:'改变结果票池、提高波动；不是无条件必买，确认适合当前概率策略再买。'},
+ {key:'manaCore',name:'完美魔力核',cost:'4 剑币',desc:'入神期间提高大成功收益；经济稳定后追。'}
+];
+const transitionRelics=[
+ {key:'blackRope',name:'黑色绳结',cost:'1 剑币',desc:'前期低成本防碎过渡件。'},
+ {key:'charredCharm',name:'焦黑护符',cost:'1 剑币',desc:'缺少其他防碎手段时临时补。'},
+ {key:'thunderMark',name:'雷纹',cost:'1 剑币',desc:'大成功后提高下一锤的安全性。'},
+ {key:'wireScabbard',name:'铁丝缠鞘',cost:'2 剑币',desc:'每回合第一次碎剑转成损伤。'},
+ {key:'oldCoupon',name:'磨旧的兑换券',cost:'2 剑币',desc:'提供免费刷新机会；前期多件关键遗物没刷到时有价值。'},
+ {key:'redLine',name:'红线',cost:'1 剑币',desc:'停滞后降低下一锤风险。'},
+ {key:'wornWhetstone',name:'磨损的砥石',cost:'1 剑币',desc:'停滞票转成功票，过渡用途。'}
+];
+const econItems={
+ chalice:{name:'送葬人的圣杯',cost:'1 剑币',desc:'碎剑时回收部分价值，降低贡品损失。'},
+ charcoal:{name:'炭粉袋',cost:'1 剑币',desc:'提高剑的基础价值，越早拿到累计收益越好。'},
+ iron:{name:'铁印',cost:'1 剑币',desc:'提高剑价值；与炭粉袋一起出现时可优先考虑。'},
+ journeyman:{name:'熟练工徽章',cost:'2 剑币',desc:'交贡后改善下一批剑的起始等级。'},
+ rebate:{name:'减税密函',cost:'2 剑币',desc:'贡品要求降低 10%，贡品压力大时优先级很高。'},
+ testament:{name:'铁匠遗言',cost:'2 剑币',desc:'用高等级剑交贡后改善下一批剑的等级起点。'},
+ tax:{name:'征税牌',cost:'3 剑币',desc:'足额交贡后额外获得遗物商店剑币，不是金币。'},
+ supply:{name:'追加供货许可',cost:'4 剑币',desc:'从下一回合起每回合额外获得一把剑。'},
+ ledger:{name:'殡葬师的账簿',cost:'4 剑币',desc:'高等级碎剑后可增加下一天供剑数量。'},
+ silverSupply:{name:'银质供货许可',cost:'以商店为准',desc:'供剑经济向；核对实际效果后再买，不要与追加供货许可混为一件。'},
+ royal:{name:'王室的零钱',cost:'4 剑币',desc:'超额贡品可抵扣部分下一日要求；有余量时才买。'},
+ hearth:{name:'随身火炉',cost:'以商店为准',desc:'长期提高剑的基础价值，作为可选经济投资。'},
+ dragonSignet:{name:'龙之印',cost:'以商店为准',desc:'提高高等级剑的价值，帮助后期交贡。'},
+ dragonHeart:{name:'龙之心',cost:'以商店为准',desc:'高等级剑成功或大成功后提高价值。'}
+};
+const merchantItems={
+ 3:[['裂纹龙鳞','1,100 G','高风险锤次保险；贡品资金紧张时跳过。'],['悔恨发条','3,980 G','资金充足且目标剑已有价值时考虑。'],['普通 +0 剑','1,040 G / 把','缺备用剑或贡品剑时才买。']],
+ 6:[['裂纹龙鳞','2,400 G','主剑高风险锤次时考虑。'],['红粉笔','3,200 G','贡品有保障后留给关键入神锤次。'],['冷星碎片','3,990 G','差 3 格充能且能马上用时考虑。'],['悔恨发条','8,730 G','非必需；先保留贡品资金。'],['幽灵送货单','5,190 G','确实缺剑时才买。']],
+ 9:[['裂纹龙鳞','5,380 G','主剑高风险锤次时买。'],['红粉笔','7,170 G','留给高等级入神。'],['冷星碎片','8,960 G','差 3 格充能时考虑。'],['悔恨发条','19,590 G','价格高，先确保贡品。'],['幽灵送货单','11,650 G','缺剑时考虑。'],['遗忘熏香','27,650 G','仅失败过贡品且怒火危险时。']],
+ 12:[['裂纹龙鳞','11,660 G','危险锤次时用。'],['红粉笔','15,540 G','后期入神冲级时用。'],['冷星碎片','19,430 G','差 3 格充能时用。'],['悔恨发条','42,460 G','资金充足才考虑。'],['幽灵送货单','25,260 G','缺剑时才买。'],['遗忘熏香','59,940 G','仅失败过贡品且怒火危险时。']],
+ 15:[['裂纹龙鳞','24,640 G','有贡品储备时买。'],['红粉笔','32,850 G','高等级冲级时留用。'],['冷星碎片','41,060 G','差 3 格充能时。'],['悔恨发条','89,740 G','通常跳过。'],['幽灵送货单','53,380 G','缺剑时才买。'],['遗忘熏香','126,690 G','仅失败过贡品且怒火危险时。']],
+ 18:[['裂纹龙鳞','50,130 G','高风险普通锤次时。'],['红粉笔','66,840 G','接近 +99 的关键锤次时。'],['冷星碎片','83,550 G','差 3 格充能且能立即用时。'],['悔恨发条','182,610 G','通常跳过。'],['幽灵送货单','108,610 G','缺剑时才买。'],['遗忘熏香','257,800 G','仅怒火危险时考虑。']],
+ 21:[['裂纹龙鳞','97,440 G','主剑风险高且仍有贡品余量时。'],['红粉笔','129,920 G','+98 冲 +99 且确认可用时。'],['冷星碎片','162,400 G','差 3 格充能且能马上用时。'],['悔恨发条','354,960 G','通常跳过。'],['幽灵送货单','211,120 G','缺剑且能帮助贡品时才买。'],['遗忘熏香','501,120 G','极少数怒火危险情况才考虑。']]
+};
+const dayPlans={
+1:{focus:['splice'],economy:['今天先拿开裂的接合片；免费三选一没出现就不为它付费刷新。'],transition:['黑色绳结（1 剑币）：没拿到防碎件时优先。','红线（1 剑币）：停滞后风险高时选。','弯钉（1 剑币）或磨损的砥石（1 剑币）：没有更合适选项再买。'],refresh:'第 1 天免费三选一，不付费刷新。把金币留给贡品，把剑币留给第 2 天经济件。'},
+2:{focus:['splice'],economy:['商店优先：送葬人的圣杯 ＞ 炭粉袋 ＞ 铁印。三件同时出现也不要为了买齐而挤掉今日/明日贡品资金。'],transition:['黑色绳结（1 剑币）：没有稳定防碎手段时买。','焦黑护符（1 剑币）：低成本临时防碎。','红线（1 剑币）：停滞后降低下一锤风险。'],refresh:'不连续付费刷新。先拿到送葬人的圣杯或炭粉袋/铁印中的一件，经济循环建立后再补。'},
+3:{focus:['hoop','holySword'],economy:['补第 2 天没买到的送葬人的圣杯、炭粉袋、铁印；然后追牢固铁箍和折断的圣剑。'],transition:['磨旧的兑换券（2 剑币）：仍缺多件关键遗物时可买，用于免费刷新。','焦黑护符（1 剑币）：缺防碎时临时补。'],refresh:'先用磨旧的兑换券提供的免费刷新。若最终件和经济件都没出现，最多考虑一次付费刷新。'},
+4:{focus:['hoop','holySword'],economy:['熟练工徽章（2 剑币）是供剑起点支持件；有余量再买，不要为它花光剑币。'],transition:['雷纹（1 剑币）：大成功后下一锤风险高时。','铁丝缠鞘（2 剑币）：每回合第一次碎剑转成损伤。','磨旧的兑换券（2 剑币）：还有多个核心缺口时考虑。'],refresh:'先预留今天贡品和下一天贡品。今天没刷到最终件，不代表必须付费刷新。'},
+5:{focus:['tongs','glassHourglass'],economy:['优先级：减税密函 ＞ 铁匠遗言 ＞ 龙鳞钳 ＞ 玻璃沙漏 ＞ 征税牌。减税密函直接降低贡品，是经济紧张时的头号目标。'],transition:['黑色绳结（1 剑币）：防碎还不稳时。','焦黑护符（1 剑币）：便宜临时保护。','巨人脊骨（2 剑币）：已有损伤、需要防碎时再考虑。'],refresh:'先找减税密函和今天新开放的最终件。贡品跟不上时，不要为了玻璃沙漏或征税牌把预算花空。'},
+6:{focus:['dawnScabbard','sickleHammer'],economy:['黎明之鞘优先于镰刀与锤子。它与折断的圣剑组成继承路线；镰刀与锤子会改变结果票池，不是无条件必买。'],transition:['凤凰之灰（3 剑币）：主剑缺一次性防碎时买。','红沙漏（2 剑币）：入神持续时间 +1 秒。','无首之钟（2 剑币）：入神结束时增加等级，确认机制适合再买。'],refresh:'先免费刷新，再看预算。今天幽灵商人商品只用贡品预留之外的金币购买。'},
+7:{focus:['manaCore'],economy:['完美魔力核是最终冲级件；经济压力大时先补减税密函、供货和价值类遗物。王室的零钱只有你经常超额交贡时才值得买；随身火炉是长期投资。'],transition:['不倒基石（4 剑币）：每把剑第一次碎剑转为损伤，价格较高。','入神风箱（3 剑币）：入神期间速度不足时考虑。','不灭灯芯（4 剑币）：需要更长入神窗口时再买。'],refresh:'第 7 天起，最终 8 件基本都已开放。只补真正缺失的最终件；不要为了凑齐清单牺牲贡品。'},
+8:{focus:[],economy:['重点补追加供货许可（4 剑币）；若殡葬师的账簿也出现，且继承路线已启动，再考虑。银质供货许可是另一件遗物，别和追加供货许可混淆。'],transition:['不灭灯芯（4 剑币）：经济稳定、入神窗口不足时再买。','凤凰之灰（3 剑币）：高等级主剑缺一次性保护时。'],refresh:'供剑遗物优先于一般冲级件。没钱就跳过，不要为商店把金币储备清空。'},
+9:{focus:[],economy:['龙之印、龙之心属于后期价值成长方向；追加供货许可和殡葬师的账簿若还缺，也优先于普通过渡件。'],transition:['先知之骰（3 剑币）：贡品有保障且确实需要大成功票时。','焦黑护符（1 剑币）：防碎不足时。'],refresh:'今天只为缺失的最终件或核心经济件刷新。',merchant:merchantItems[9]},
+10:{focus:[],economy:['只补还缺的最终 8 件。经济件方面，优先补减税密函、追加供货许可、殡葬师的账簿、龙之印/龙之心中真正能改善你当前短板的项目。'],transition:['凤凰之灰（3 剑币）：主剑缺一次性保护时。','先知之骰（3 剑币）：确实需要大成功票时。'],refresh:'先锁定本日贡品剑，再预留下一日贡品；剩余才是商店预算。'},
+11:{focus:[],economy:['如果供剑仍不足，优先追加供货许可/殡葬师的账簿；如果剑的价值不足，优先炭粉袋、铁印、龙之印或龙之心中尚缺的有效项。'],transition:['雷纹（1 剑币）：下一锤风险高时。','铁丝缠鞘（2 剑币）：缺少一次性保护时。'],refresh:'只为明确的经济缺口刷新；不要为一般过渡件连续付费刷新。'},
+12:{focus:[],economy:['最终遗物仍缺就优先补齐；如果最终件已齐，优先供剑和价值成长，不要重复买同类冲级件。'],transition:['不灭灯芯（4 剑币）：入神时间不够时再买。','凤凰之灰（3 剑币）：高等级主剑保险。'],refresh:'刷新成本已经很高，只在确实缺关键件时考虑。',merchant:merchantItems[12]},
+13:{focus:[],economy:['优先补未拥有的最终遗物；最终件已齐后，购买任何经济件前先确认它能改善贡品或供剑瓶颈。'],transition:['先知之骰（3 剑币）：需要大成功票时。','不灭灯芯（4 剑币）：入神窗口不够时。'],refresh:'不追一般过渡件；只有关键遗物缺口明确时才刷新。'},
+14:{focus:[],economy:['如果减税、供剑、剑价值三类已经有可靠配置，停止刷商店，开始积累金币和锻造资源。'],transition:['凤凰之灰（3 剑币）：高等级主剑缺保险时。','不灭灯芯（4 剑币）：主剑需要更长入神窗口时。'],refresh:'后期每一次付费刷新都要先问：这笔钱会不会影响贡品？会就不刷。'},
+15:{focus:[],economy:['补最后缺的最终遗物；已齐则优先保住贡品资金。商人商品只买能立即用于贡品剑或关键锤次的项目。'],transition:['红粉笔：留给接近目标等级时的关键锤次。','裂纹龙鳞：只有主剑实际风险高且预算充足时买。'],refresh:'后期刷新费很高，只为缺失的关键件刷新。',merchant:merchantItems[15]},
+16:{focus:[],economy:['先确定本日贡品剑和下一日储备。不要为“也许有用”的过渡件花掉最后的金币。'],transition:['凤凰之灰（3 剑币）：高等级主剑缺保护时。','焦黑护符（1 剑币）：没有更好的防碎件时。'],refresh:'今天只用贡品储备之外的资源补缺。'},
+17:{focus:[],economy:['供剑不足就优先供货类；剑价值不足就优先价值类；碎剑风险太高才购买防碎件。不要三类都追满。'],transition:['先知之骰（3 剑币）：确实需要大成功票时。','入神风箱（3 剑币）：入神期间速度不足时。'],refresh:'若下一天贡品没有可靠覆盖，不要进行高风险冲级。'},
+18:{focus:[],economy:['若最终件已齐，商人商品只考虑立即能保护主剑、补供剑或提升当下贡品能力的选项。'],transition:['不灭灯芯（4 剑币）：主剑需要更长入神窗口时。','凤凰之灰（3 剑币）：高等级主剑保险。'],refresh:'只为关键经济缺口刷新；没有余钱时跳过商店。',merchant:merchantItems[18]},
+19:{focus:[],economy:['若核心经济遗物齐全，不再刷新；把金币留给贡品。最终遗物只补未拥有的项目。'],transition:['凤凰之灰：主剑还需要一次性保护时。','先知之骰：主剑确实需要大成功票时。'],refresh:'没有明确收益的刷新就不做。'},
+20:{focus:[],economy:['今天开始以贡品安全为第一位。只有在剩余资金足够覆盖贡品时，才考虑商人或过渡遗物。'],transition:['只在主剑缺关键保护时买防碎过渡件。','不为了凑满遗物架购买普通过渡遗物。'],refresh:'除非只差一件能明显减少贡品压力的关键遗物，否则不建议付费刷新。'},
+21:{focus:[],economy:['只补最后缺失的最终遗物。若最终 8 件已齐，把金币和剑币留给贡品与 +98 → +99 的关键锤次。'],transition:['不再推荐普通过渡件；主剑确实缺保护时才买。'],refresh:'第 21 天后仍可继续锻造；不要为了商店耗尽贡品储备。',merchant:merchantItems[21]}
+};
+const stateKeys={final:'forgetax_final_relics_v3',transition:'forgetax_transition_relics_v3',notes:'forgetax_day_notes_v3',open:'forgetax_open_days_v3'};
+function safeGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function readJSON(k,fallback){try{const v=safeGet(k);return v?JSON.parse(v):fallback}catch(e){return fallback}}
+function writeJSON(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function migrateFinal(){const fresh=safeGet(stateKeys.final);if(fresh)return readJSON(stateKeys.final,{});const old=readJSON('forgetax_final_relics_v1',{});const valid=new Set(finalRelics.map(x=>x.key));const migrated={};Object.keys(old||{}).forEach(k=>{if(valid.has(k)&&old[k])migrated[k]=true});writeJSON(stateKeys.final,migrated);return migrated}
+let finalState=migrateFinal();let transitionState=readJSON(stateKeys.transition,{});let notesState=readJSON(stateKeys.notes,readJSON('forgetax_day_notes_v1',{}));let openState=readJSON(stateKeys.open,{});
+function itemByKey(list,key){return list.find(x=>x.key===key)}
+function makeCheckbox(item,type,prefix,checked){const id=`${prefix}-${type}-${item.key}`;return `<div class="check-row"><input type="checkbox" id="${id}" data-type="${type}" data-key="${item.key}" ${checked?'checked':''}><label for="${id}"><span class="label-name">${item.name}</span> <span class="tiny">（${item.cost}）</span><span class="desc">${item.desc||''}</span></label></div>`}
+function renderChecklists(){document.getElementById('finalChecks').innerHTML=finalRelics.map(x=>makeCheckbox(x,'final','master',!!finalState[x.key])).join('');document.getElementById('transitionChecks').innerHTML=transitionRelics.map(x=>makeCheckbox(x,'transition','master',!!transitionState[x.key])).join('');document.getElementById('quickFinalChecks').innerHTML=finalRelics.map(x=>makeCheckbox(x,'final','quick-final',!!finalState[x.key])).join('');document.getElementById('quickTransitionChecks').innerHTML=transitionRelics.map(x=>makeCheckbox(x,'transition','quick-transition',!!transitionState[x.key])).join('')}
+function renderDailyChecks(keys,day){const list=keys.map(k=>itemByKey(finalRelics,k)).filter(Boolean);if(!list.length)return '<div class="tip">今天没有新增开放的最终遗物。继续追踪上方“最终遗物缺口”，只购买仍缺且预算允许的项目。</div>';return `<div class="daily-focus">${list.map(x=>makeCheckbox(x,'final',`day${day}`,!!finalState[x.key])).join('')}</div>`}
+function formatG(n){return Number(n).toLocaleString('en-US')+' G'}
+function renderDays(){let html='';for(let day=1;day<=21;day++){const plan=dayPlans[day];let focus=plan.focus||[];if(day>=8)focus=[];const missingFinal=finalRelics.filter(x=>!finalState[x.key]);const availableMissing=missingFinal.filter(x=>x.key==='splice'||x.key==='hoop'||x.key==='holySword'||day>=5&&['tongs','glassHourglass'].includes(x.key)||day>=6&&['dawnScabbard','sickleHammer'].includes(x.key)||day>=7&&x.key==='manaCore');const merchant=plan.merchant||merchantItems[day];const merchantHtml=merchant?`<div class="section"><h3>幽灵商人：今天建议买什么</h3><table class="merchant-table"><thead><tr><th>商品</th><th>价格</th><th>建议</th></tr></thead><tbody>${merchant.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table><p class="tiny">商人商品使用金币 G。只有扣除今日未交贡品和下一天贡品预留后仍有余量，才考虑购买。</p></div>`:'';
+html+=`<details class="day" data-day="${day}" ${openState[day]===true || (openState[day]===undefined && day===1)?'open':''}><summary><div class="day-head"><div><div class="day-title">第 ${day} 天 <span class="day-meta">｜ 贡品 ${formatG(tributes[day])}</span>${merchantDays.has(day)?'<span class="merchant-tag">幽灵商人</span>':''}</div><div class="day-meta">执行顺序：先贡品、再最终遗物、最后才考虑过渡件和商人消费</div></div></div></summary><div class="day-body">
+<div class="section"><h3>① 今日最终遗物目标</h3>${focus.length?renderDailyChecks(focus,day):'<div class="tip">今天没有新增最终遗物开放。优先从上方最终遗物总表查看仍缺项目；已开放且仍缺的最终件优先于普通过渡件。</div>'}<div class="needline" id="daily-missing-${day}"></div></div>
+<div class="section"><h3>② 今日经济优先级（根据实际商店出现情况购买）</h3><ul class="bullets">${plan.economy.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+<div class="section"><h3>③ 前期/临时过渡推荐</h3><ul class="bullets">${plan.transition.map(x=>`<li>${x}</li>`).join('')}</ul><p class="tiny">过渡件只解决当前风险，不是必须集齐；如果影响贡品预算或占满遗物位，就跳过或后续替换。</p></div>
+<div class="section"><h3>④ 刷新建议</h3><div class="tip">${plan.refresh}</div></div>
+${merchantHtml}
+<div class="section"><h3>⑤ 当天记录</h3><textarea class="note" data-note-day="${day}" placeholder="记录今日实际刷到/购买的遗物、剩余金币、贡品是否交完、主剑等级。">${escapeHtml(notesState[day]||'')}</textarea></div>
+</div></details>`}
+document.getElementById('days').innerHTML=html;document.querySelectorAll('details.day').forEach(d=>d.addEventListener('toggle',()=>{openState[d.dataset.day]=d.open;writeJSON(stateKeys.open,openState)}));updateViews()}
+function escapeHtml(s){return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
+function updateViews(){document.querySelectorAll('[data-type][data-key]').forEach(input=>{const type=input.dataset.type,key=input.dataset.key;const state=type==='final'?finalState:transitionState;input.checked=!!state[key]});const owned=finalRelics.filter(x=>finalState[x.key]),missing=finalRelics.filter(x=>!finalState[x.key]);document.getElementById('finalProgress').textContent=`${owned.length} / ${finalRelics.length}`;document.getElementById('finalMissingSummary').textContent=missing.length?'还缺：'+missing.map(x=>x.name).join('、'):'最终 8 件已全部勾选。';document.getElementById('finalOwned').innerHTML=owned.length?owned.map(x=>`<span class="pill good">${x.name}</span>`).join(''):'<span class="tiny">尚未勾选已拥有的最终遗物</span>';document.getElementById('finalMissing').innerHTML=missing.length?missing.map(x=>`<span class="pill missing">缺：${x.name}</span>`).join(''):'<span class="pill good">已集齐最终 8 件</span>';document.getElementById('quickProgress').textContent=`${owned.length} / ${finalRelics.length}`;document.getElementById('quickProgressInside').textContent=`${owned.length} / ${finalRelics.length}`;document.getElementById('quickMissingSummary').textContent=missing.length?'还缺：'+missing.map(x=>x.name).join('、'):'最终 8 件已全部勾选。';document.getElementById('quickOwned').innerHTML=owned.length?owned.map(x=>`<span class="pill good">${x.name}</span>`).join(''):'<span class="tiny">尚未勾选已拥有的最终遗物</span>';document.getElementById('quickMissing').innerHTML=missing.length?missing.map(x=>`<span class="pill missing">缺：${x.name}</span>`).join(''):'<span class="pill good">已集齐最终 8 件</span>';
+for(let day=1;day<=21;day++){const el=document.getElementById(`daily-missing-${day}`);if(!el)continue;const avail=finalRelics.filter(x=>!finalState[x.key]&&(x.key==='splice'||day>=3&&['hoop','holySword'].includes(x.key)||day>=5&&['tongs','glassHourglass'].includes(x.key)||day>=6&&['dawnScabbard','sickleHammer'].includes(x.key)||day>=7&&x.key==='manaCore'));el.innerHTML=avail.length?`<strong>截至第 ${day} 天仍缺且已开放：</strong>${avail.map(x=>x.name).join('、')}`:'<span style="color:var(--green);font-weight:700">已勾选当前阶段已开放的最终遗物，或尚无已开放缺口。</span>'}
+updateBudget()}
+function updateBudget(){const day=Math.max(1,Math.min(21,Number(document.getElementById('budgetDay')?.value||1)));const gold=Math.max(0,Number(document.getElementById('budgetGold')?.value||0));const paid=!!document.getElementById('todayPaid')?.checked;const todayNeed=paid?0:tributes[day];const nextNeed=tributes[day+1]||0;const reserve=todayNeed+nextNeed;const spend=gold-reserve;const el=document.getElementById('budgetResult');if(!el)return;el.classList.toggle('bad',spend<0);el.textContent=`今日贡品预留：${formatG(todayNeed)}；下一日预留：${formatG(nextNeed)}；建议最低保留：${formatG(reserve)}。${spend>=0?'预算外可考虑消费：'+formatG(spend):'当前还差 '+formatG(-spend)+' 才能覆盖这两项贡品，暂停非必要消费。'}${day===21?'（第 21 天之后贡品金额未纳入本计算，建议额外留缓冲。）':''}`}
+document.addEventListener('change',e=>{const t=e.target;if(t.matches('[data-type][data-key]')){const state=t.dataset.type==='final'?finalState:transitionState;state[t.dataset.key]=t.checked;writeJSON(t.dataset.type==='final'?stateKeys.final:stateKeys.transition,state);updateViews()}if(t.id==='todayPaid')updateBudget()});document.addEventListener('input',e=>{if(e.target.matches('[data-note-day]')){notesState[e.target.dataset.noteDay]=e.target.value;writeJSON(stateKeys.notes,notesState)}if(['budgetDay','budgetGold'].includes(e.target.id))updateBudget()});
+document.getElementById('toggleFinal').addEventListener('click',()=>{const x=document.getElementById('finalPanel');x.open=!x.open;document.getElementById('toggleFinal').textContent=x.open?'收起最终遗物':'展开最终遗物'});document.getElementById('finalPanel').addEventListener('toggle',()=>document.getElementById('toggleFinal').textContent=document.getElementById('finalPanel').open?'收起最终遗物':'展开最终遗物');document.getElementById('toggleTransition').addEventListener('click',()=>{const x=document.getElementById('transitionPanel');x.open=!x.open;document.getElementById('toggleTransition').textContent=x.open?'收起过渡遗物':'展开过渡遗物'});document.getElementById('transitionPanel').addEventListener('toggle',()=>document.getElementById('toggleTransition').textContent=document.getElementById('transitionPanel').open?'收起过渡遗物':'展开过渡遗物');document.getElementById('expandDays').addEventListener('click',()=>document.querySelectorAll('.day').forEach(x=>x.open=true));document.getElementById('collapseDays').addEventListener('click',()=>document.querySelectorAll('.day').forEach(x=>x.open=false));document.getElementById('resetChecks').addEventListener('click',()=>{if(!confirm('确定清空最终遗物和过渡遗物的全部勾选吗？'))return;finalState={};transitionState={};writeJSON(stateKeys.final,finalState);writeJSON(stateKeys.transition,transitionState);updateViews()});
+
+// 快速遗物弹窗：上滑时显示浮动入口；勾选沿用同一全局状态。
+const quickFloat=document.getElementById('quickFloat');const quickOverlay=document.getElementById('quickOverlay');let lastScrollY=window.scrollY;let scrollTick=false;
+window.addEventListener('scroll',()=>{if(scrollTick)return;scrollTick=true;requestAnimationFrame(()=>{const y=window.scrollY;const delta=y-lastScrollY;if(y<180){quickFloat.classList.remove('show')}else if(delta < -3){quickFloat.classList.add('show')}else if(delta > 5){quickFloat.classList.remove('show')}lastScrollY=y;scrollTick=false})},{passive:true});
+function openQuick(){quickOverlay.classList.add('open');document.body.style.overflow='hidden';updateViews()}
+function closeQuick(){quickOverlay.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('openQuickRelics').addEventListener('click',openQuick);document.getElementById('closeQuickTop').addEventListener('click',closeQuick);document.getElementById('closeQuickBottom').addEventListener('click',closeQuick);quickOverlay.addEventListener('click',e=>{if(e.target===quickOverlay)closeQuick()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&quickOverlay.classList.contains('open'))closeQuick()});document.getElementById('quickScrollPlan').addEventListener('click',()=>{closeQuick();const days=document.getElementById('days');days.scrollIntoView({behavior:'smooth',block:'start'})});
+renderChecklists();renderDays();updateViews();
+</script>
+</body>
+</html>
